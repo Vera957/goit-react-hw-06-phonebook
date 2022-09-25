@@ -1,19 +1,21 @@
-import { Component } from "react";
 import { StyledInputTwo } from "style/style";
+import { useDispatch } from "react-redux";
+import { setFilter } from "redux/store";
 
-export class Field2 extends Component {
-    render() {
-        return (<>
-            <h2>Search by name</h2>
-            <form>
-                <StyledInputTwo
-                    type="text"
-                    placeholder="Search"
-                    name="filter"
-                    id='searchName'
-                    onChange={(e) => this.props.onChange(e.target.value)}
-                />
-            </form>
-        </>)
-    }
+export const Field2 = () => {
+    const dispatch = useDispatch();
+
+    return (<>
+        <h2>Search by name</h2>
+        <form>
+            <StyledInputTwo
+                type="text"
+                placeholder="Search"
+                name="filter"
+                id='searchName'
+                onChange={(e) => dispatch(setFilter(e.target.value))}
+            />
+        </form>
+    </>)
+
 }
